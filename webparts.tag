@@ -84,6 +84,5 @@
     </style>
 
     <script>
-        this.on('mount', () => { console.log(this) })
     </script>
 </dm-don-timeline>
