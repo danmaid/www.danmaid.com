@@ -56,7 +56,7 @@
             width: 320px;
             height: 320px;
             background-color: rgb(57, 57, 63);
-            color: rgb(228, 228, 252);
+            color: rgb(209, 209, 231);
             border-radius: 2px;
             box-shadow: 2px 2px 4px -2px;
             overflow: hidden;
@@ -70,14 +70,17 @@
             padding-bottom: 4px;
             height: 24px;
             position: relative;
+            color: rgb(228, 228, 252);
         }
 
         .content {
             height: calc(100% - 4px - 4px - 24px);
             background-color: rgb(38, 38, 42);
-            color: rgb(209, 209, 231);
             overflow-y: auto;
             overflow-x: hidden;
+        }
+
+        .content.center {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -106,6 +109,22 @@
         a {
             text-decoration: none
         }
+
+        #crypto .content {
+            padding: 8px;
+        }
+
+        #crypto p {
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .ltp-item {
+            border: 1px solid;
+            border-color: rgb(95, 95, 105);
+            padding: 4px 8px;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 
@@ -119,7 +138,8 @@
                 <header class="title">
                     <i class="fas fa-question mark"></i>男メイドとは
                 </header>
-                <section class="content">
+                <section class="content center">
+                    SEのためのSE。
                 </section>
             </article>
             <article class="card" id="don-timeline">
@@ -132,9 +152,24 @@
             <a href="http://crypto.danmaid.com/">
                 <article class="card" id="crypto">
                     <header class="title">
-                        <i class="fab fa-bitcoin mark"></i>暗号通貨
+                        <i class="fab fa-bitcoin mark"></i>暗号通貨（仮想通貨）
                     </header>
                     <section class="content">
+                        <p>暗号通貨でデータ分析や自動取引を行うための基盤となるツールを提供しています。</p>
+                        <div class="ltp-item">
+                            bitfinex
+                            <i class="fab fa-btc"></i>
+                            /
+                            <i class="fas fa-dollar-sign"></i>
+                            <dm-lastprice id="bitfinex"></dm-lastprice>
+                        </div>
+                        <div class="ltp-item">
+                            Zaif
+                            <i class="fab fa-btc"></i>
+                            /
+                            <i class="fas fa-yen-sign"></i>
+                            <dm-lastprice id="zaif"></dm-lastprice>
+                        </div>
                     </section>
                 </article>
             </a>
@@ -149,7 +184,7 @@
                 <header class="title">
                     <i class="fas fa-paper-plane mark"></i>広告
                 </header>
-                <section class="content">
+                <section class="content center">
                     広告掲載予定
                 </section>
             </article>
@@ -175,6 +210,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/riot/riot+compiler.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/riot-route/dist/route.min.js"></script>
+
     <script>
         fetch('https://don.danmaid.com/api/v1/timelines/public')
             .then(r => r.json())
@@ -195,6 +231,14 @@
             // });
             route.start(true);
         });
+    </script>
+
+    <script src="https://unpkg.com/@reactivex/rxjs/dist/global/Rx.min.js"></script>
+    <script src="http://crypto.danmaid.com/tags/dist/dm-lastprice.js"></script>
+    <script type="module">
+        import { bitfinex_BTC_USD, zaif_BTC_JPY } from 'http://crypto.danmaid.com/modules/src/executions.js';
+        riot.mount('#bitfinex', 'dm-lastprice', { stream: bitfinex_BTC_USD });
+        riot.mount('#zaif', 'dm-lastprice', { stream: zaif_BTC_JPY });
     </script>
 </body>
 
