@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>男メイド</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif"
+        crossorigin="anonymous"></script>
+    <style>
+        :root {
+            background-color: rgb(19, 19, 21);
+            color: rgb(190, 190, 210);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(57, 57, 63);
+            border: 0 none #fff;
+            border-radius: 0;
+        }
+
+        ::-webkit-scrollbar-track {
+            border: 0 none #fff;
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            text-align: end;
+        }
+
+        .contents-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: flex-start;
+        }
+
+        .card {
+            width: 320px;
+            height: 320px;
+            background-color: rgb(57, 57, 63);
+            color: rgb(228, 228, 252);
+            border-radius: 2px;
+            box-shadow: 2px 2px 4px -2px;
+            overflow: hidden;
+            margin: 8px;
+        }
+
+        .title {
+            padding: 8px;
+            padding-right: calc(8px + 98px + 8px);
+            padding-bottom: 4px;
+            height: 24px;
+            position: relative;
+        }
+
+        .content {
+            height: calc(100% - 8px - 4px - 24px);
+            background-color: rgb(38, 38, 42);
+            color: rgb(209, 209, 231);
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mark {
+            margin-right: 4px;
+        }
+
+        a:link {
+            color: inherit
+        }
+
+        a:visited {
+            color: inherit
+        }
+
+        a:hover {
+            color: inherit
+        }
+
+        a:active {
+            color: inherit
+        }
+
+        a {
+            text-decoration: none
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        男メイド
+    </header>
+    <main>
+        <section class="contents-container">
+            <article class="card" id="about">
+                <header class="title">
+                    <i class="fas fa-question mark"></i>男メイドとは
+                </header>
+                <section class="content">
+                </section>
+            </article>
+            <article class="card" id="don-timeline">
+                <header class="title">
+                    <i class="fas fa-comments mark"></i>最近の話題
+                </header>
+                <section class="content">
+                </section>
+            </article>
+            <a href="http://crypto.danmaid.com/">
+                <article class="card" id="crypto">
+                    <header class="title">
+                        <i class="fab fa-bitcoin mark"></i>暗号通貨
+                    </header>
+                    <section class="content">
+                    </section>
+                </article>
+            </a>
+            <article class="card" id="labo">
+                <header class="title">
+                    <i class="fas fa-flask mark"></i>ラボ
+                </header>
+                <section class="content">
+                </section>
+            </article>
+            <article class="card" id="ads">
+                <header class="title">
+                    <i class="fas fa-paper-plane mark"></i>広告
+                </header>
+                <section class="content">
+                    広告掲載予定
+                </section>
+            </article>
+            <article class="card" id="blog">
+                <header class="title">
+                    <i class="fas fa-tags mark"></i>ブログ
+                </header>
+                <section class="content">
+                </section>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <i class="far fa-copyright mark"></i>2018 男メイド
+    </footer>
+
+
+    <!-- サイトコンテンツ -->
+    <!-- <script type="riot/tag" src="home.tag"></script> -->
+    <!-- <script type="riot/tag" src="product.tag"></script> -->
+    <script type="riot/tag" src="webparts.tag"></script>
+    <!-- <script type="riot/tag" src="about.tag"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/riot/riot+compiler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/riot-route/dist/route.min.js"></script>
+    <script>
+        fetch('https://don.danmaid.com/api/v1/timelines/public')
+            .then(r => r.json())
+            .then(x => riot.mount('#don-timeline', 'dm-don-timeline', { data: x }));
+        riot.compile(() => {
+            route.base('/');
+            // route('/about', () => {
+            //     riot.mount('main', 'about');
+            // });
+            // route('/product', () => {
+            //     riot.mount('main', 'product', { exec });
+            // });
+            // route('/labo', () => {
+            //     riot.mount('main', 'labo', { exec });
+            // });
+            // route('/', () => {
+            //     riot.mount('main', 'home', { exec });
+            // });
+            route.start(true);
+        });
+    </script>
+</body>
+
+</html>
