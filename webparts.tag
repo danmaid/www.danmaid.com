@@ -18,8 +18,9 @@
 
     <style>
         .title {
-            padding: 8px;
+            padding-left: 8px;
             padding-right: calc(8px + 98px + 8px);
+            padding-top: 4px;
             padding-bottom: 4px;
             height: 24px;
             position: relative;
@@ -33,7 +34,7 @@
         }
 
         .toots {
-            max-height: calc(100% - 8px - 4px - 24px);
+            max-height: calc(100% - 4px - 4px - 24px);
             overflow-y: auto;
             overflow-x: hidden;
         }
