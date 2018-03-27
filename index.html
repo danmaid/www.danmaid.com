@@ -276,9 +276,9 @@
     </script>
 
     <script src="https://unpkg.com/@reactivex/rxjs/dist/global/Rx.min.js"></script>
-    <script src="http://crypto.danmaid.com/tags/dist/dm-lastprice.js"></script>
+    <script src="https://crypto.danmaid.com/tags/dist/dm-lastprice.js"></script>
     <script type="module">
-        import { bitfinex_BTC_USD, zaif_BTC_JPY } from 'http://crypto.danmaid.com/modules/src/executions.js';
+        import { bitfinex_BTC_USD, zaif_BTC_JPY } from 'https://crypto.danmaid.com/modules/src/executions.js';
         riot.mount('#bitfinex', 'dm-lastprice', { stream: bitfinex_BTC_USD });
         riot.mount('#zaif', 'dm-lastprice', { stream: zaif_BTC_JPY });
     </script>
