@@ -111,6 +111,7 @@
         }
 
         #crypto .content,
+        #update .content,
         #labo .content {
             padding: 8px;
         }
@@ -133,6 +134,7 @@
             height: unset;
             font-size: 0.9em;
         }
+
         .update.content {
             height: unset;
             background-color: unset;
@@ -216,6 +218,14 @@
                     </section>
                 </article>
             </a>
+            <article class="card" id="update">
+                <header class="title">
+                    <i class="fas fa-info-circle mark"></i>更新履歴
+                </header>
+                <section class="content">
+                    <section class="update" id="update"></section>
+                </section>
+            </article>
         </section>
     </main>
     <footer class="footer">
@@ -240,6 +250,9 @@
             fetch('https://api.bitbucket.org/2.0/repositories/danmaids/crypto.danmaid.com/commits/master')
                 .then(r => r.json())
                 .then(x => riot.mount('#crypto #update', 'dm-update', { data: x }));
+            fetch('https://api.bitbucket.org/2.0/repositories/danmaids/www.danmaid.com/commits/master')
+                .then(r => r.json())
+                .then(x => riot.mount('#update #update', 'dm-update', { data: x }));
 
             route.base('/');
             route('/blog', () => {
