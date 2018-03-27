@@ -2,6 +2,7 @@
     this.root.innerHTML = opts.content
 </raw>
 
+<!-- args: data = timeline object -->
 <dm-don-timeline>
     <a href="https://don.danmaid.com/">
         <header class="title">
@@ -86,3 +87,29 @@
     <script>
     </script>
 </dm-don-timeline>
+
+<!-- args: data = commits object -->
+<dm-update>
+    <div class="row" each="{ commit in opts.data.values }">
+        <div class="date">{ (new Date(commit.date)).toLocaleDateString() }</div>
+        <div class="message">{ commit.message }</div>
+    </div>
+
+    <style>
+        .row {
+            position: relative;
+            font-size: 0.8em;
+        }
+        .date {
+            position: absolute;
+        }
+        .message {
+            padding-left: calc(72px + 8px);
+        }
+    </style>
+    <script>
+        this.on('mount', () => {
+            console.log(this)
+        })
+    </script>
+</dm-update>
