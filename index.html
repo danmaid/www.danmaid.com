@@ -110,11 +110,13 @@
             text-decoration: none
         }
 
-        #crypto .content, #labo .content {
+        #crypto .content,
+        #labo .content {
             padding: 8px;
         }
 
-        #crypto p, #labo p {
+        #crypto p,
+        #labo p {
             margin: 0;
             margin-bottom: 8px;
         }
@@ -130,7 +132,7 @@
 
 <body>
     <header class="header">
-        男メイド
+        <a href="/">男メイド</a>
     </header>
     <main>
         <section class="contents-container">
@@ -189,14 +191,16 @@
                     広告掲載予定
                 </section>
             </article>
-            <article class="card" id="blog">
-                <header class="title">
-                    <i class="fas fa-tags mark"></i>ブログ
-                </header>
-                <section class="content center">
-                    準備中
-                </section>
-            </article>
+            <a href="/blog">
+                <article class="card" id="blog">
+                    <header class="title">
+                        <i class="fas fa-tags mark"></i>ブログ
+                    </header>
+                    <section class="content center">
+                        ブログってなに？
+                    </section>
+                </article>
+            </a>
         </section>
     </main>
     <footer class="footer">
@@ -208,7 +212,7 @@
     <!-- <script type="riot/tag" src="home.tag"></script> -->
     <!-- <script type="riot/tag" src="product.tag"></script> -->
     <script type="riot/tag" src="webparts.tag"></script>
-    <!-- <script type="riot/tag" src="about.tag"></script> -->
+    <script type="riot/tag" src="blog/whatisblog.tag"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/riot/riot+compiler.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/riot-route/dist/route.min.js"></script>
@@ -219,18 +223,22 @@
             .then(x => riot.mount('#don-timeline', 'dm-don-timeline', { data: x }));
         riot.compile(() => {
             route.base('/');
-            // route('/about', () => {
-            //     riot.mount('main', 'about');
-            // });
+            route('/blog', () => {
+                riot.mount('main', 'whatisblog');
+            });
             // route('/product', () => {
             //     riot.mount('main', 'product', { exec });
             // });
             // route('/labo', () => {
             //     riot.mount('main', 'labo', { exec });
             // });
-            // route('/', () => {
-            //     riot.mount('main', 'home', { exec });
-            // });
+            route('/', () => {
+                // タグに何かマウントされてから戻ってきた場合は再読み込みさせる。
+                let target = document.getElementsByTagName('main')[0];
+                if (target.dataset.is) {
+                    location.reload();
+                }
+            });
             route.start(true);
         });
     </script>
