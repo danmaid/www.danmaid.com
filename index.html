@@ -112,11 +112,13 @@
 
         #crypto .content,
         #update .content,
+        #blog .content,
         #labo .content {
             padding: 8px;
         }
 
         #crypto p,
+        #blog p,
         #labo p {
             margin: 0;
             margin-bottom: 8px;
@@ -213,8 +215,10 @@
                     <header class="title">
                         <i class="fas fa-tags mark"></i>ブログ
                     </header>
-                    <section class="content center">
-                        ブログってなに？
+                    <section class="content">
+                        <p>ブログってなに？</p>
+                        <div class="update title">コンテンツ更新履歴</div>
+                        <section class="update content" id="update"></section>
                     </section>
                 </article>
             </a>
@@ -253,6 +257,9 @@
             fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits')
                 .then(r => r.json())
                 .then(x => riot.mount('#update #update', 'dm-update-github', { data: x }));
+            fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits?path=/blog')
+                .then(r => r.json())
+                .then(x => riot.mount('#blog #update', 'dm-update-github', { data: x }));
 
             route.base('/');
             route('/blog', () => {
