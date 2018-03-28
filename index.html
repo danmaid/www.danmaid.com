@@ -250,9 +250,9 @@
             fetch('https://api.bitbucket.org/2.0/repositories/danmaids/crypto.danmaid.com/commits/master')
                 .then(r => r.json())
                 .then(x => riot.mount('#crypto #update', 'dm-update', { data: x }));
-            fetch('https://api.bitbucket.org/2.0/repositories/danmaids/www.danmaid.com/commits/master')
+            fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits')
                 .then(r => r.json())
-                .then(x => riot.mount('#update #update', 'dm-update', { data: x }));
+                .then(x => riot.mount('#update #update', 'dm-update-github', { data: x }));
 
             route.base('/');
             route('/blog', () => {
