@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>男メイド</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="common.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
         crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19"
@@ -14,271 +16,127 @@
         crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif"
         crossorigin="anonymous"></script>
-    <style>
-        :root {
-            background-color: rgb(19, 19, 21);
-            color: rgb(190, 190, 210);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-corner {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: rgb(57, 57, 63);
-            border: 0 none #fff;
-            border-radius: 0;
-        }
-
-        ::-webkit-scrollbar-track {
-            border: 0 none #fff;
-            border-radius: 0;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .footer {
-            text-align: end;
-        }
-
-        .contents-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: flex-start;
-        }
-
-        .card {
-            width: 320px;
-            height: 320px;
-            background-color: rgb(57, 57, 63);
-            color: rgb(209, 209, 231);
-            border-radius: 2px;
-            box-shadow: 2px 2px 4px -2px;
-            overflow: hidden;
-            margin: 8px;
-        }
-
-        .title {
-            padding-left: 8px;
-            padding-right: calc(8px + 98px + 8px);
-            padding-top: 4px;
-            padding-bottom: 4px;
-            height: 24px;
-            position: relative;
-            color: rgb(228, 228, 252);
-        }
-
-        .content {
-            height: calc(100% - 4px - 4px - 24px);
-            background-color: rgb(38, 38, 42);
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        .content.center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .mark {
-            margin-right: 4px;
-        }
-
-        a:link {
-            color: inherit
-        }
-
-        a:visited {
-            color: inherit
-        }
-
-        a:hover {
-            color: inherit
-        }
-
-        a:active {
-            color: inherit
-        }
-
-        a {
-            text-decoration: none
-        }
-
-        #crypto .content,
-        #update .content,
-        #blog .content,
-        #labo .content {
-            padding: 8px;
-        }
-
-        #crypto p,
-        #blog p,
-        #labo p {
-            margin: 0;
-            margin-bottom: 8px;
-        }
-
-        #crypto .ltp-item {
-            border: 1px solid;
-            border-color: rgb(95, 95, 105);
-            padding: 4px 8px;
-            margin-bottom: 8px;
-        }
-
-        .update.title {
-            background-color: rgb(57, 57, 63);
-            height: unset;
-            font-size: 0.9em;
-        }
-
-        .update.content {
-            height: unset;
-            background-color: unset;
-            overflow-y: unset;
-            overflow-x: unset;
-            padding: 0 8px;
-        }
-    </style>
 </head>
 
 <body>
     <header class="header">
-        <a href="/">男メイド</a>
+        <h1>
+            <a href="https://danmaid.com/">男メイド</a>
+        </h1>
     </header>
-    <main>
-        <section class="contents-container">
-            <article class="card" id="about">
-                <header class="title">
-                    <i class="fas fa-question mark"></i>男メイドとは
-                </header>
-                <section class="content center">
-                    SEのためのSE。
-                </section>
-            </article>
-            <article class="card" id="don-timeline">
-                <header class="title">
+
+
+    <main class="contents-container">
+        <article class="card" id="about">
+            <h2 class="title">
+                <i class="fas fa-question mark"></i>男メイドとは
+            </h2>
+            <section class="content center">
+                SEのためのSE。
+            </section>
+        </article>
+
+        <article class="card" id="don-timeline">
+            <a href="https://don.danmaid.com/">
+                <h2 class="title">
+                    <img alt="Mastodon" src="https://don.danmaid.com/packs/logo_full-96e7a97fe469f75a23a74852b2478fa3.svg" class="logo">
                     <i class="fas fa-comments mark"></i>最近の話題
-                </header>
-                <section class="content">
-                </section>
-            </article>
-            <article class="card" id="crypto">
-                <a href="https://crypto.danmaid.com/">
-                    <header class="title">
-                        <i class="fab fa-bitcoin mark"></i>暗号通貨（仮想通貨）
-                    </header>
-                    <section class="content">
-                        <p>暗号通貨でデータ分析や自動取引を行うための基盤となるツールを提供しています。</p>
-                        <div class="ltp-item">
-                            bitfinex
-                            <i class="fab fa-btc"></i>
-                            /
-                            <i class="fas fa-dollar-sign"></i>
-                            <dm-lastprice id="bitfinex"></dm-lastprice>
-                        </div>
-                        <div class="ltp-item">
-                            Zaif
-                            <i class="fab fa-btc"></i>
-                            /
-                            <i class="fas fa-yen-sign"></i>
-                            <dm-lastprice id="zaif"></dm-lastprice>
-                        </div>
-                        <div class="update title">コンテンツ更新履歴</div>
-                        <section class="update content" id="update"></section>
-                    </section>
-                </a>
-            </article>
-            <article class="card" id="labo">
-                <header class="title">
-                    <i class="fas fa-flask mark"></i>ラボ
-                </header>
-                <section class="content">
-                    <p>有料サービスを含む各種クラウドサービスやプロダクト等をラボメン向けに提供しています。</p>
-                </section>
-            </article>
-            <article class="card" id="ads">
-                <header class="title">
-                    <i class="fas fa-paper-plane mark"></i>広告
-                </header>
-                <section class="content center">
-                    広告掲載予定
-                </section>
-            </article>
-            <a href="/blog">
-                <article class="card" id="blog">
-                    <header class="title">
-                        <i class="fas fa-tags mark"></i>ブログ
-                    </header>
-                    <section class="content">
-                        <p>ブログってなに？</p>
-                        <div class="update title">コンテンツ更新履歴</div>
-                        <section class="update content" id="update"></section>
-                    </section>
-                </article>
+                </h2>
             </a>
-            <article class="card" id="update">
-                <header class="title">
-                    <i class="fas fa-info-circle mark"></i>更新履歴
-                </header>
+            <dm-don-timeline class="content"></dm-don-timeline>
+        </article>
+
+        <article class="card" id="crypto">
+            <a href="https://crypto.danmaid.com/">
+                <h2 class="title">
+                    <i class="fab fa-bitcoin mark"></i>暗号通貨（仮想通貨）
+                </h2>
                 <section class="content">
-                    <section class="update" id="update"></section>
+                    <p>暗号通貨でデータ分析や自動取引を行うための基盤となるツールを提供しています。</p>
+                    <div class="ltp-item">
+                        bitfinex
+                        <i class="fab fa-btc"></i>
+                        /
+                        <i class="fas fa-dollar-sign"></i>
+                        <dm-lastprice id="bitfinex"></dm-lastprice>
+                    </div>
+                    <div class="ltp-item">
+                        Zaif
+                        <i class="fab fa-btc"></i>
+                        /
+                        <i class="fas fa-yen-sign"></i>
+                        <dm-lastprice id="zaif"></dm-lastprice>
+                    </div>
+                    <div class="update title">コンテンツ更新履歴</div>
+                    <section class="update content" id="update"></section>
                 </section>
-            </article>
-        </section>
+            </a>
+        </article>
+
+        <article class="card" id="labo">
+            <h2 class="title">
+                <i class="fas fa-flask mark"></i>ラボ
+            </h2>
+            <section class="content">
+                <p>有料サービスを含む各種クラウドサービスやプロダクト等をラボメン向けに提供しています。</p>
+            </section>
+        </article>
+
+        <article class="card" id="ads">
+            <h2 class="title">
+                <i class="fas fa-paper-plane mark"></i>広告
+            </h2>
+            <section class="content center">
+                広告掲載予定
+            </section>
+        </article>
+
+        <article class="card" id="blog">
+            <a href="/blog">
+                <h2 class="title">
+                    <i class="fas fa-tags mark"></i>ブログ
+                </h2>
+                <section class="content">
+                    <p>ブログってなに？</p>
+                    <div class="update title">コンテンツ更新履歴</div>
+                    <section class="update content" id="update"></section>
+                </section>
+            </a>
+        </article>
+
+        <article class="card" id="update">
+            <h2 class="title">
+                <i class="fas fa-info-circle mark"></i>更新履歴
+            </h2>
+            <section class="content">
+                <section class="update" id="update"></section>
+            </section>
+        </article>
     </main>
-    <footer class="footer">
-        <i class="far fa-copyright mark"></i>2018 男メイド
-    </footer>
+
+    <footer class="footer"></footer>
 
 
     <!-- サイトコンテンツ -->
-    <!-- <script type="riot/tag" src="home.tag"></script> -->
-    <!-- <script type="riot/tag" src="product.tag"></script> -->
-    <script type="riot/tag" src="webparts.tag"></script>
-    <script type="riot/tag" src="blog/whatisblog.tag"></script>
+    <script type="riot/tag" src="common.tag"></script>
+    <script type="riot/tag" src="dm-don.tag"></script>
+    <script type="riot/tag" src="dm-update.tag"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/riot/riot+compiler.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/riot-route/dist/route.min.js"></script>
 
     <script>
         riot.compile(() => {
-            fetch('https://don.danmaid.com/api/v1/timelines/public')
+            riot.mount('*');
+
+            fetch('https://api.github.com/repos/danmaid/crypto.danmaid.com/commits')
                 .then(r => r.json())
-                .then(x => riot.mount('#don-timeline', 'dm-don-timeline', { data: x }));
-            fetch('https://api.bitbucket.org/2.0/repositories/danmaids/crypto.danmaid.com/commits/master')
-                .then(r => r.json())
-                .then(x => riot.mount('#crypto #update', 'dm-update', { data: x }));
+                .then(x => riot.mount('#crypto #update', 'dm-update-github', { data: x }));
             fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits')
                 .then(r => r.json())
                 .then(x => riot.mount('#update #update', 'dm-update-github', { data: x }));
             fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits?path=/blog')
                 .then(r => r.json())
                 .then(x => riot.mount('#blog #update', 'dm-update-github', { data: x }));
-
-            route.base('/');
-            route('/blog', () => {
-                riot.mount('main', 'whatisblog');
-            });
-            // route('/product', () => {
-            //     riot.mount('main', 'product', { exec });
-            // });
-            // route('/labo', () => {
-            //     riot.mount('main', 'labo', { exec });
-            // });
-            route('/', () => {
-                // タグに何かマウントされてから戻ってきた場合は再読み込みさせる。
-                let target = document.getElementsByTagName('main')[0];
-                if (target.dataset.is) {
-                    location.reload();
-                }
-            });
-            route.start(true);
         });
     </script>
 
