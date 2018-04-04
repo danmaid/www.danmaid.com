@@ -92,7 +92,7 @@
         </article>
 
         <article class="card" id="blog">
-            <a href="http://blog.danmaid.com/">
+            <a href="https://blog.danmaid.com/">
                 <h2 class="title">
                     <i class="fas fa-tags mark"></i>ブログ
                 </h2>
@@ -132,7 +132,7 @@
             fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits')
                 .then(r => r.json())
                 .then(x => riot.mount('#update #update', 'dm-update-github', { data: x }));
-            fetch('http://blog.danmaid.com/wp-json/wp/v2/posts')
+            fetch('https://blog.danmaid.com/wp-json/wp/v2/posts')
                 .then(r => r.json())
                 .then(x => riot.mount('#blog #update', 'dm-update-wordpress', { data: x }));
         });
