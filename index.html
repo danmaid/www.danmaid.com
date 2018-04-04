@@ -96,12 +96,10 @@
                 <h2 class="title">
                     <i class="fas fa-tags mark"></i>ブログ
                 </h2>
-                <section class="content">
-                    <!-- <p>ブログってなに？</p>
-                    <div class="update title">コンテンツ更新履歴</div>
-                    <section class="update content" id="update"></section> -->
-                </section>
             </a>
+            <section class="content">
+                <section class="update" id="update"></section>
+            </section>
         </article>
 
         <article class="card" id="update">
@@ -134,9 +132,9 @@
             fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits')
                 .then(r => r.json())
                 .then(x => riot.mount('#update #update', 'dm-update-github', { data: x }));
-            fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits?path=/blog')
+            fetch('http://blog.danmaid.com/wp-json/wp/v2/posts')
                 .then(r => r.json())
-                .then(x => riot.mount('#blog #update', 'dm-update-github', { data: x }));
+                .then(x => riot.mount('#blog #update', 'dm-update-wordpress', { data: x }));
         });
     </script>
 
