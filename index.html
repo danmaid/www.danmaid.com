@@ -124,8 +124,6 @@
 
     <script>
         riot.compile(() => {
-            riot.mount('*');
-
             fetch('https://api.github.com/repos/danmaid/crypto.danmaid.com/commits')
                 .then(r => r.json())
                 .then(x => riot.mount('#crypto #update', 'dm-update-github', { data: x }));
@@ -135,6 +133,7 @@
             fetch('https://blog.danmaid.com/wp-json/wp/v2/posts')
                 .then(r => r.json())
                 .then(x => riot.mount('#blog #update', 'dm-update-wordpress', { data: x }));
+            riot.mount('*');
         });
     </script>
 
