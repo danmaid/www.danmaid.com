@@ -4,6 +4,7 @@
     <style>
         :scope {
             text-align: end;
+            display: block;
         }
 
         .mark {
