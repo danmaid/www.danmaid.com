@@ -74,14 +74,14 @@
                         <i class="fab fa-btc"></i>
                         /
                         <i class="fas fa-dollar-sign"></i>
-                        <dm-lastprice id="bitfinex"></dm-lastprice>
+                        <span id="bitfinex"></span>
                     </div>
                     <div class="ltp-item">
-                        Zaif
+                        bitFlyer
                         <i class="fab fa-btc"></i>
                         /
                         <i class="fas fa-yen-sign"></i>
-                        <dm-lastprice id="zaif"></dm-lastprice>
+                        <span id="bitflyer"></span>
                     </div>
                     <div class="update title">コンテンツ更新履歴</div>
                     <section class="update content" id="update"></section>
@@ -142,12 +142,18 @@
         });
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.10/Rx.min.js"></script>
-    <script src="https://crypto.danmaid.com/tags/dist/dm-lastprice.js"></script>
-    <script type="module">
-        import { bitfinex_BTC_USD, zaif_BTC_JPY } from 'https://crypto.danmaid.com/modules/src/executions.js';
-        riot.mount('#bitfinex', 'dm-lastprice', { stream: bitfinex_BTC_USD });
-        riot.mount('#zaif', 'dm-lastprice', { stream: zaif_BTC_JPY });
+    <script src="https://crypto.danmaid.com/modules/src/executions3.js"></script>
+    <script>
+        let bitfinex = new bitfinex_BTC_USD()
+        let bitfinex_price = document.getElementById('bitfinex')
+        bitfinex.addEventListener('message', (e) => {
+            bitfinex_price.textContent = e.detail.price
+        })
+        let bitflyer = new bitflyer_BTC_JPY()
+        let bitflyer_price = document.getElementById('bitflyer')
+        bitflyer.addEventListener('message', (e) => {
+            bitflyer_price.textContent = e.detail.price
+        })
     </script>
 </body>
 
