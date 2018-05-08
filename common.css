@@ -1,6 +1,7 @@
 :root {
     background-color: rgb(19, 19, 21);
     color: rgb(190, 190, 210);
+    font-family: Meiryo;
 }
 
 ::-webkit-scrollbar {
