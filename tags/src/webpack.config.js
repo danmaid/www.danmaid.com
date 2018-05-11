@@ -3,7 +3,8 @@ const webpack = require('webpack')
 module.exports = {
     mode: 'production',
     entry: {
-        "dm-tags": './index.js'
+        "dm-tags": './index.js',
+        "dm-gauge2": "./dm-gauge2.js"
     },
     // 出力の設定
     output: {
