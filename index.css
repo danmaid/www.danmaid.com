@@ -52,11 +52,20 @@
     margin-right: 4px;
 }
 
-#crypto .content, #update .content, #blog .content, #labo .content {
+#crypto .content, #update .content, #blog .content, #labo .content, #components .content {
     padding: 8px;
 }
 
-#crypto p, #blog p, #labo p {
+#components dl {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+#components dl dd {
+    margin-left: 1.5em;
+}
+
+#crypto p, #blog p, #labo p, #components p {
     margin: 0;
     margin-bottom: 8px;
 }
@@ -106,6 +115,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: inherit;
 }
 
 .contact-list .contact:hover {
