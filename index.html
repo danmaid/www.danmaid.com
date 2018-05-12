@@ -59,12 +59,22 @@
                 </h2>
             </a>
             <section class="content">
-                <p>Web制作を捗らせるカスタムタグを提供しています。システム監視とか見える化とかそっち方面重視。</p>
+                <p>システム監視とか見える化とかそっち方面を支援するカスタムタグ。</p>
                 <dl>
                     <dt>
                         <a href="/components/dm-gauge2.html">
                             <strong>&lt;dm-gauge2&gt;</strong>
+                            <dm-gauge2 id="gauge2-demo" style="display: inline-block; width: 100px; vertical-align: top;" data-value="0"></dm-gauge2>
                         </a>
+                        <!-- タグ読み込み -->
+                        <script async src="tags/dm-gauge2.js"></script>
+                        <script async>
+                            // 0-100ループ
+                            let gauge2 = document.getElementById('gauge2-demo')
+                            setInterval((gauge) => {
+                                gauge.dataset.value = gauge.dataset.value > 120 ? 0 : parseInt(gauge.dataset.value) + 2
+                            }, 100, gauge2)
+                        </script>
                     </dt>
                     <dd>シンプルなゲージ（メーター）を表示するタグ。タイプ２。</dd>
                 </dl>
