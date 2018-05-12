@@ -99,12 +99,15 @@
 
             for (let i = 0; i < list.length; ++i) {
                 let item = list[i];
+                // edge だと dataset が取れないようなので。
+                let inactive = item.dataset ? item.dataset.inactive : item.getAttribute('data-inactive')
+                let active = item.dataset ? item.dataset.active : item.getAttribute('data-active')
                 if (i < (value / 2)) {
-                    item.classList.remove(item.dataset.inactive);
-                    item.classList.add(item.dataset.active);
+                    item.classList.remove(inactive);
+                    item.classList.add(active);
                 } else {
-                    item.classList.remove(item.dataset.active);
-                    item.classList.add(item.dataset.inactive);
+                    item.classList.remove(active);
+                    item.classList.add(inactive);
                 }
             }
         }.bind(this)
