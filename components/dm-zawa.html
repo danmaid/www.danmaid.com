@@ -13,52 +13,48 @@
     </script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Components | 男メイド</title>
+    <title>&lt;dm-zawa&gt; - Components | 男メイド</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/common.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js" integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR"
         crossorigin="anonymous"></script>
     <script async src="/tags/dm-tags.js"></script>
-    <script defer src="/tags/dm-gauge2.js"></script>
-    <script defer src="/tags/dm-zawa.js"></script>
 </head>
 
 <body>
     <header class="header">
         <div class="title">
-            <h1>Components</h1>
+            <h1>&lt;dm-zawa&gt;: ざわ</h1>
+            <i class="fas fa-angle-left"></i>
+            <a href="/components/">Components</a>
             <i class="fas fa-angle-left"></i>
             <a href="/">男メイド</a>
         </div>
     </header>
 
     <main>
-        <dl>
-            <div>
-                <dt>
-                    <a href="dm-gauge2.html">
-                        <strong>&lt;dm-gauge2&gt;</strong>
-                    </a>
-                </dt>
-                <dd>シンプルなゲージ（メーター）を表示するタグ。タイプ２。</dd>
-                <dd>
-                    <dm-gauge2 style="width: 150px;" data-value="50"></dm-gauge2>
-                </dd>
-            </div>
-            <div style="position: relative;">
-                <dt>
-                    <a href="dm-zawa.html">
-                        <strong>&lt;dm-zawa&gt;</strong>
-                    </a>
-                </dt>
-                <dd>ざわざわするタグ。</dd>
-                <dd>
-                    <dm-zawa data-value="50" style="position: absolute;"></dm-zawa>
-                </dd>
-            </div>
+        <p>&lt;dm-zawa&gt; 要素は、「ざわ」を表示します。</p>
+        <dl class="properties">
+            <dt>タグの省略</dt>
+            <dd>不可。開始と終了タグの両方が必要。</dd>
         </dl>
 
+        <h2>属性</h2>
+        <dl>
+            <dt>
+                <strong>data-value</strong>
+            </dt>
+            <dd>ざわの量を指定する。動的更新対応。</dd>
+        </dl>
+
+        <h2>サンプル</h2>
+        <p data-height="265" data-theme-id="0" data-slug-hash="wjXvVr" data-default-tab="html,result" data-user="danmaid" data-embed-version="2"
+            data-pen-title="dm-zawa:sample" class="codepen">See the Pen
+            <a href="https://codepen.io/danmaid/pen/wjXvVr/">dm-zawa:sample</a> by 男メイド (
+            <a href="https://codepen.io/danmaid">@danmaid</a>) on
+            <a href="https://codepen.io">CodePen</a>.</p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
     </main>
 
     <dm-footer></dm-footer>
