@@ -61,22 +61,50 @@
             <section class="content">
                 <p>システム監視とか見える化とかそっち方面を支援するカスタムタグ。</p>
                 <dl>
-                    <dt>
-                        <a href="/components/dm-gauge2.html">
-                            <strong>&lt;dm-gauge2&gt;</strong>
-                            <dm-gauge2 id="gauge2-demo" style="display: inline-block; width: 100px; vertical-align: top;" data-value="0"></dm-gauge2>
-                        </a>
+                    <div>
+                        <dt>
+                            <a href="/components/dm-gauge2.html">
+                                <strong>&lt;dm-gauge2&gt;</strong>
+                                <dm-gauge2 id="gauge2-demo" data-value="0" style="display: inline-block; width: 100px; vertical-align: top;"></dm-gauge2>
+                            </a>
+                            <span id="gauge2-value"></span>
+                        </dt>
+                        <dd>シンプルなゲージ（メーター）を表示するタグ。タイプ２。</dd>
                         <!-- タグ読み込み -->
                         <script async src="tags/dm-gauge2.js"></script>
                         <script async>
-                            // 0-100ループ
+                            // 0-120ループ
                             let gauge2 = document.getElementById('gauge2-demo')
-                            setInterval((gauge) => {
-                                gauge.dataset.value = gauge.dataset.value > 120 ? 0 : parseInt(gauge.dataset.value) + 2
-                            }, 100, gauge2)
+                            let gauge2Value = document.getElementById('gauge2-value')
+                            setInterval((tag, valueTag) => {
+                                let value = tag.dataset.value > 120 ? 0 : parseInt(tag.dataset.value) + 2
+                                tag.dataset.value = value
+                                valueTag.textContent = value
+                            }, 100, gauge2, gauge2Value)
                         </script>
-                    </dt>
-                    <dd>シンプルなゲージ（メーター）を表示するタグ。タイプ２。</dd>
+                    </div>
+                    <div style="position: relative;">
+                        <dm-zawa id="zawa-demo" data-value="0" style="position: absolute;"></dm-zawa>
+                        <dt>
+                            <a href="/components/dm-zawa.html">
+                                <strong>&lt;dm-zawa&gt;</strong>
+                            </a>
+                            <span id="zawa-value">0</span>
+                        </dt>
+                        <dd>ざわざわするタグ。</dd>
+                        <!-- タグ読み込み -->
+                        <script async src="tags/dm-zawa.js"></script>
+                        <script async>
+                            // 0-120ループ
+                            let zawa = document.getElementById('zawa-demo')
+                            let zawaValue = document.getElementById('zawa-value')
+                            setInterval((tag, valueTag) => {
+                                let value = tag.dataset.value > 100 ? 0 : parseInt(tag.dataset.value) + 20
+                                tag.dataset.value = value
+                                valueTag.textContent = value
+                            }, 5000, zawa, zawaValue)
+                        </script>
+                    </div>
                 </dl>
             </section>
         </article>

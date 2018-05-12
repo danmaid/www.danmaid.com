@@ -4,7 +4,8 @@ module.exports = {
     mode: 'production',
     entry: {
         "dm-tags": './index.js',
-        "dm-gauge2": "./dm-gauge2.js"
+        "dm-gauge2": "./dm-gauge2.js",
+        "dm-zawa": "./dm-zawa.js"
     },
     // 出力の設定
     output: {
