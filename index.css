@@ -56,6 +56,10 @@
     padding: 8px;
 }
 
+#about .content #content{
+    padding: 8px;
+}
+
 #components dl {
     font-size: 0.8em;
     margin: 0;
@@ -65,7 +69,7 @@
     margin-left: 1.5em;
 }
 
-#crypto p, #blog p, #labo p, #components p {
+#about p, #crypto p, #blog p, #labo p, #components p {
     margin: 0;
     margin-bottom: 8px;
 }
@@ -93,11 +97,12 @@
 
 .contact-list {
     display: flex;
-    position: absolute;
     bottom: 0;
+    left: 0;
     list-style: none;
     padding: 0;
     margin: 8px;
+    width: calc(100% - 8px - 8px);
 }
 
 .contact-list .contact {
@@ -106,7 +111,7 @@
     height: 32px;
     font-size: 16px;
     border-radius: 50%;
-    margin: 0 8px;
+    margin-left: 8px;
 }
 
 .contact-list a {
@@ -121,4 +126,15 @@
 .contact-list .contact:hover {
     background-color: rgba(153, 153, 153, 1);
     color: rgba(34, 34, 34, 1);
+}
+
+.content .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.addr {
+    border: 1px solid;
+    padding: 4px;
 }
