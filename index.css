@@ -56,7 +56,7 @@
     padding: 8px;
 }
 
-#about .content #content{
+#about .content #content {
     padding: 8px;
 }
 
@@ -137,4 +137,36 @@
 .addr {
     border: 1px solid;
     padding: 4px;
+}
+
+.volume-item {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#crypto a {
+    color: unset;
+}
+
+#crypto a:hover, #crypto a:active {
+    text-decoration: none;
+}
+
+#crypto .volume-buy {
+    width: 100px;
+    display: inline-block;
+}
+
+#crypto .volume-sell {
+    width: 100px;
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+#crypto .volume-buy .active, #crypto .volume-buy .active-middle, #crypto .volume-buy .active-high {
+    fill: green;
+}
+
+#crypto .volume-sell .active, #crypto .volume-sell .active-middle, #crypto .volume-sell .active-high {
+    fill: red;
 }

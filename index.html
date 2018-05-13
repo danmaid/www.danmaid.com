@@ -242,19 +242,35 @@
                 </h2>
                 <section class="content">
                     <p>暗号通貨でデータ分析や自動取引を行うための基盤となるツールを提供しています。</p>
-                    <div class="ltp-item">
+                    <div id="bitfinex" class="ltp-item">
                         bitfinex
                         <i class="fab fa-btc"></i>
                         /
                         <i class="fas fa-dollar-sign"></i>
-                        <span id="bitfinex"></span>
+                        <span id="price"></span>
+                        <div class="volume-item" style="position:relative;">
+                            <span style="position:absolute;top:-6px;left:0;">sell</span>
+                            <span id="volume-sell-label"></span>
+                            <dm-gauge2 id="volume-sell" class="volume-sell"></dm-gauge2>
+                            <dm-gauge2 id="volume-buy" class="volume-buy"></dm-gauge2>
+                            <span id="volume-buy-label"></span>
+                            <span style="position:absolute;top:-6px;right:0;">buy</span>
+                        </div>
                     </div>
-                    <div class="ltp-item">
+                    <div id="bitflyer" class="ltp-item">
                         bitFlyer
                         <i class="fab fa-btc"></i>
                         /
                         <i class="fas fa-yen-sign"></i>
-                        <span id="bitflyer"></span>
+                        <span id="price"></span>
+                        <div class="volume-item" style="position:relative;">
+                            <span style="position:absolute;top:-6px;left:0;">sell</span>
+                            <span id="volume-sell-label"></span>
+                            <dm-gauge2 id="volume-sell" class="volume-sell"></dm-gauge2>
+                            <dm-gauge2 id="volume-buy" class="volume-buy"></dm-gauge2>
+                            <span id="volume-buy-label"></span>
+                            <span style="position:absolute;top:-6px;right:0;">buy</span>
+                        </div>
                     </div>
                     <div class="update title">コンテンツ更新履歴</div>
                     <section class="update content" id="update"></section>
@@ -318,16 +334,52 @@
     <script src="https://unpkg.com/event-target@latest/min.js"></script>
     <script src="https://crypto.danmaid.com/modules/src/executions3.js"></script>
     <script>
-        let bitfinex = new bitfinex_BTC_USD()
-        let bitfinex_price = document.getElementById('bitfinex')
-        bitfinex.addEventListener('message', (e) => {
-            bitfinex_price.textContent = e.detail.price
+        let bitfinex = { root: document.getElementById('bitfinex') }
+        bitfinex.source = new bitfinex_BTC_USD()
+        let bitflyer = { root: document.getElementById('bitflyer') }
+        bitflyer.source = new bitflyer_BTC_JPY()
+        // 価格表示
+        bitfinex.price = bitfinex.root.querySelector('#price')
+        bitfinex.source.addEventListener('message', (e) => {
+            bitfinex.price.textContent = e.detail.price
         })
-        let bitflyer = new bitflyer_BTC_JPY()
-        let bitflyer_price = document.getElementById('bitflyer')
-        bitflyer.addEventListener('message', (e) => {
-            bitflyer_price.textContent = e.detail.price
+        bitflyer.price = bitflyer.root.querySelector('#price')
+        bitflyer.source.addEventListener('message', (e) => {
+            bitflyer.price.textContent = e.detail.price
         })
+        // ボリューム表示
+        let aggregator = (source, volume_buy, volume_sell, volume_buy_label, volume_sell_label) => {
+            // 集約
+            let limit = new Date()
+            limit.setSeconds(limit.getSeconds() - 20)
+            source = source.filter(e => e.date > limit)
+            // サイド分割
+            let buy = source.filter(e => e.side == 'BUY').map(e => e.volume || e.size).reduce((x, y) => x + y, 0)
+            let sell = source.filter(e => e.side == 'SELL').map(e => e.volume || e.size).reduce((x, y) => x + y, 0)
+            // まるめ
+            buy = Math.round(buy * 10) / 10
+            sell = Math.round(sell * 10) / 10
+            volume_buy.dataset.value = volume_buy_label.textContent = buy
+            volume_sell.dataset.value = volume_sell_label.textContent = sell
+        }
+        bitfinex.buy = bitfinex.root.querySelector('#volume-buy')
+        bitfinex.sell = bitfinex.root.querySelector('#volume-sell')
+        bitfinex.buy_label = bitfinex.root.querySelector('#volume-buy-label')
+        bitfinex.sell_label = bitfinex.root.querySelector('#volume-sell-label')
+        bitfinex.volume = []
+        bitfinex.source.addEventListener('message', (e) => {
+            bitfinex.volume.push(e.detail)
+        })
+        setInterval(aggregator, 1000, bitfinex.volume, bitfinex.buy, bitfinex.sell, bitfinex.buy_label, bitfinex.sell_label)
+        bitflyer.buy = bitflyer.root.querySelector('#volume-buy')
+        bitflyer.sell = bitflyer.root.querySelector('#volume-sell')
+        bitflyer.buy_label = bitflyer.root.querySelector('#volume-buy-label')
+        bitflyer.sell_label = bitflyer.root.querySelector('#volume-sell-label')
+        bitflyer.volume = []
+        bitflyer.source.addEventListener('message', (e) => {
+            bitflyer.volume.push(e.detail)
+        })
+        setInterval(aggregator, 1000, bitflyer.volume, bitflyer.buy, bitflyer.sell, bitflyer.buy_label, bitflyer.sell_label)
     </script>
 </body>
 
