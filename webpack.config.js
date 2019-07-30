@@ -3,7 +3,7 @@ const webpack = require('webpack')
 module.exports = {
     mode: 'production',
     entry: {
-        "dm-tags": './src/index.js',
+        "common": './src/common.js',
         "dm-gauge2": "./src/dm-gauge2.js",
         "dm-zawa": "./src/dm-zawa.js"
     },
@@ -21,6 +21,8 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: 'public'
+        contentBase: 'public',
+        watchContentBase: true,
+        inline: true
     }
 }

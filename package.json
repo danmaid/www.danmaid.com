@@ -9,7 +9,13 @@
     "build": "webpack"
   },
   "author": "danmaid <contact@danmaid.com> (https://github.com/danmaid/)",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/danmaid/www.danmaid.com.git"
+  },
+  "homepage": "https://www.danmaid.com",
   "license": "MIT",
+  "private": true,
   "dependencies": {
     "riot": "^3.13.2",
     "riot-compiler": "^3.6.0",
