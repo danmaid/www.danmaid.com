@@ -50,6 +50,6 @@ workflows:
             branches:
               only:
                 - master
-      - build-deploy-production:
+      - deploy-production:
           requires:
             - build
