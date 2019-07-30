@@ -1,7 +1,8 @@
 const webpack = require('webpack')
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
+    devtool: 'source-map',
     entry: {
         "common": './src/common.js',
         "dm-gauge2": "./src/dm-gauge2.js",
@@ -22,7 +23,7 @@ module.exports = {
     },
     devServer: {
         contentBase: 'public',
-        watchContentBase: true,
-        inline: true
+        publicPath: '/tags/',
+        watchContentBase: true
     }
 }
