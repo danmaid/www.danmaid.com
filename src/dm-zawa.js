@@ -1,3 +1,3 @@
-const tags = require('./dm-zawa.tag')
+import './dm-zawa.tag'
 
 riot.mount('dm-zawa')

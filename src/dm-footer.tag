@@ -94,7 +94,12 @@
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
-    </ul>
+        <li class="contact" title="メールで連絡">
+                <a href="mailto:contact@danmaid.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </li>
+        </ul>
     <div class="area-copyright">
         <a href="https://danmaid.com/">
             <i class="far fa-copyright"></i> 2018 男メイド</a>
