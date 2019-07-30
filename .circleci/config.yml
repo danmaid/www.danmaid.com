@@ -1,0 +1,44 @@
+version: 2.1
+orbs:
+  aws-s3: circleci/aws-s3@1.0.4
+jobs:
+  build:
+    working_directory: /tmp/workspace
+    docker:
+      - image: circleci/node:10.16.0
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm run build
+
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - public
+  
+    deploy-production:
+      working_directory: /tmp/workspace
+      docker:
+      - image: circleci/python:2.7
+
+      steps:
+        - attach_workspace:
+            at: /tmp/workspace
+        - aws-s3/sync:
+            from: ./public/
+            to: s3://${AWS_S3_BUCKET_NAME}/
+            arguments: --exact-timestamps --cache-control no-store
+            overwrite: true

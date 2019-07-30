@@ -3,15 +3,13 @@ const webpack = require('webpack')
 module.exports = {
     mode: 'production',
     entry: {
-        "dm-tags": './index.js',
-        "dm-gauge2": "./dm-gauge2.js",
-        "dm-zawa": "./dm-zawa.js"
+        "dm-tags": './src/index.js',
+        "dm-gauge2": "./src/dm-gauge2.js",
+        "dm-zawa": "./src/dm-zawa.js"
     },
-    // 出力の設定
     output: {
-        // 出力するファイル名
         filename: "[name].js",
-        path: __dirname + '/../'
+        path: `${__dirname}/public/tags/`
     },
     plugins: [
         new webpack.ProvidePlugin({ riot: 'riot' })
@@ -19,7 +17,10 @@ module.exports = {
     module: {
         rules: [
             { enforce: 'pre', test: /\.tag$/, exclude: /node_modules/, loader: 'riot-tag-loader', query: { type: 'none' } },
-            { test: /\.js$|\.tag$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['es2015'] } }
+            { test: /\.js$|\.tag$/, exclude: /node_modules/, loader: 'babel-loader' }
         ]
+    },
+    devServer: {
+        contentBase: 'public'
     }
 }
