@@ -29,19 +29,19 @@ jobs:
           paths:
             - public
   
-    deploy-production:
-      working_directory: /tmp/workspace
-      docker:
-      - image: circleci/python:2.7
+  deploy-production:
+    working_directory: /tmp/workspace
+    docker:
+    - image: circleci/python:2.7
 
-      steps:
-        - attach_workspace:
-            at: /tmp/workspace
-        - aws-s3/sync:
-            from: ./public/
-            to: s3://${AWS_S3_BUCKET_NAME}/
-            arguments: --exact-timestamps --cache-control no-store
-            overwrite: true
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - aws-s3/sync:
+          from: ./public/
+          to: s3://${AWS_S3_BUCKET_NAME}/
+          arguments: --exact-timestamps --cache-control no-store
+          overwrite: true
 workflows:
   build-deploy-production:
     jobs:
