@@ -1,4 +1,4 @@
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faCopyright } from '@fortawesome/free-regular-svg-icons'
 import { faBitcoin, faEthereum, faMastodon, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -10,4 +10,5 @@ library.add(faEthereum)
 library.add(faMastodon)
 library.add(faTwitter)
 library.add(faEnvelope)
+dom.watch()
 riot.mount('dm-footer')
