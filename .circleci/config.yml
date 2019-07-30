@@ -42,3 +42,14 @@ jobs:
             to: s3://${AWS_S3_BUCKET_NAME}/
             arguments: --exact-timestamps --cache-control no-store
             overwrite: true
+workflows:
+  build-deploy-production:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+      - build-deploy-production:
+          requires:
+            - build
