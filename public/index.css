@@ -155,11 +155,11 @@
     text-align: center;
 }
 
-#crypto a {
+#crypto a, #update a, #about a {
     color: unset;
 }
 
-#crypto a:hover, #crypto a:active {
+#crypto a:hover, #crypto a:active, #update a:hover, #update a:active, #about a:hover, #about a:active {
     text-decoration: none;
 }
 
