@@ -1,0 +1,183 @@
+.contents-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.card {
+    width: 320px;
+    height: 320px;
+    background-color: rgb(57, 57, 63);
+    color: rgb(209, 209, 231);
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px -2px;
+    overflow: hidden;
+    margin: 8px;
+}
+
+.title {
+    padding-left: 8px;
+    padding-right: calc(8px + 98px + 8px);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    height: 24px;
+    position: relative;
+    color: rgb(228, 228, 252);
+}
+
+.title .logo {
+    max-height: 24px;
+    max-width: 98px;
+    position: absolute;
+    right: 8px;
+}
+
+.content {
+    height: calc(100% - 4px - 4px - 24px);
+    background-color: rgb(38, 38, 42);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    position: relative;
+}
+
+.content.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mark {
+    margin-right: 4px;
+}
+
+#crypto .content, #update .content, #blog .content, #labo .content, #components .content {
+    padding: 8px;
+}
+
+#about .content #content {
+    padding: 8px;
+}
+
+#components dl {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+#components dl dd {
+    margin-left: 1.5em;
+}
+
+#about p, #crypto p, #blog p, #labo p, #components p {
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+#crypto .ltp-item {
+    border: 1px solid;
+    border-color: rgb(95, 95, 105);
+    padding: 4px 8px;
+    margin-bottom: 8px;
+}
+
+.update.title {
+    background-color: rgb(57, 57, 63);
+    height: unset;
+    font-size: 0.9em;
+}
+
+.update.content {
+    height: unset;
+    background-color: unset;
+    overflow-y: unset;
+    overflow-x: unset;
+    padding: 0 8px;
+}
+
+.contact-list, .donation-list {
+    display: flex;
+    bottom: 0;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 8px;
+    width: calc(100% - 8px - 8px);
+    line-height: 32px;
+}
+
+.contact-list .contact, .donation-list .contact {
+    background-color: rgba(70, 70, 70, 1);
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.donation-list .contact {
+    border-radius: 20%;
+    font-size: 20px;
+}
+
+.contact-list a, .donation-list a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+}
+
+.contact-list .contact:hover, .donation-list .contact:hover {
+    background-color: rgba(153, 153, 153, 1);
+    color: rgba(34, 34, 34, 1);
+}
+
+.content .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.content .footer .area-copyright {
+    display: none;
+}
+
+.addr {
+    border: 1px solid;
+    padding: 4px;
+}
+
+.volume-item {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#crypto a, #update a, #about a {
+    color: unset;
+}
+
+#crypto a:hover, #crypto a:active, #update a:hover, #update a:active, #about a:hover, #about a:active {
+    text-decoration: none;
+}
+
+#crypto .volume-buy {
+    width: 100px;
+    display: inline-block;
+}
+
+#crypto .volume-sell {
+    width: 100px;
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+#crypto .volume-buy .active, #crypto .volume-buy .active-middle, #crypto .volume-buy .active-high {
+    fill: green;
+}
+
+#crypto .volume-sell .active, #crypto .volume-sell .active-middle, #crypto .volume-sell .active-high {
+    fill: red;
+}

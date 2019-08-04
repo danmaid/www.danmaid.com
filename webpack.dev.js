@@ -10,7 +10,7 @@ module.exports = {
     },
     output: {
         filename: "[name].js",
-        path: `${__dirname}/public/tags/`
+        path: `${__dirname}/dist/scripts/`
     },
     plugins: [
         new webpack.ProvidePlugin({ riot: 'riot' })
@@ -22,8 +22,8 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: 'public',
-        publicPath: '/tags/',
+        contentBase: 'dist',
+        publicPath: '/scripts/',
         watchContentBase: true
     }
 }
