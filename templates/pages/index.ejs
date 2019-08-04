@@ -1,0 +1,156 @@
+<article class="card" id="about">
+    <a href="/about.html">
+        <h2 class="title">
+            <i class="fas fa-question mark"></i>男メイドとは
+        </h2>
+        <section class="content">
+            <div id="content">
+                <p>３歩下がってついていく。</p>
+                <p>月額0円からの成功報酬型ITシステムエンジニアリング屋。</p>
+            </div>
+        </section>
+    </a>
+</article>
+
+<article class="card" id="components">
+    <a href="/components/">
+        <h2 class="title">
+            <i class="fas fa-tag mark"></i>カスタムタグ
+        </h2>
+    </a>
+    <section class="content">
+        <p>システム監視とか見える化とかそっち方面を支援するカスタムタグ。</p>
+        <dl>
+            <div>
+                <dt>
+                    <a href="/components/dm-gauge2.html">
+                        <strong>&lt;dm-gauge2&gt;</strong>
+                        <dm-gauge2 id="gauge2-demo" data-value="0"
+                            style="display: inline-block; width: 100px; vertical-align: top;"></dm-gauge2>
+                    </a>
+                    <span id="gauge2-value"></span>
+                </dt>
+                <dd>シンプルなゲージ（メーター）を表示するタグ。タイプ２。</dd>
+                <!-- タグ読み込み -->
+                <script async src="/scripts/dm-gauge2.js"></script>
+                <script async>
+                    // 0-120ループ
+                    let gauge2 = document.getElementById('gauge2-demo')
+                    let gauge2Value = document.getElementById('gauge2-value')
+                    setInterval((tag, valueTag) => {
+                        let value = tag.dataset.value > 120 ? 0 : parseInt(tag.dataset.value) + 2
+                        tag.dataset.value = value
+                        valueTag.textContent = value
+                    }, 100, gauge2, gauge2Value)
+                </script>
+            </div>
+            <div style="position: relative;">
+                <dm-zawa id="zawa-demo" data-value="0" style="position: absolute;"></dm-zawa>
+                <dt>
+                    <a href="/components/dm-zawa.html">
+                        <strong>&lt;dm-zawa&gt;</strong>
+                    </a>
+                    <span id="zawa-value">0</span>
+                </dt>
+                <dd>ざわざわするタグ。</dd>
+                <!-- タグ読み込み -->
+                <script async src="/scripts/dm-zawa.js"></script>
+                <script async>
+                    // 0-120ループ
+                    let zawa = document.getElementById('zawa-demo')
+                    let zawaValue = document.getElementById('zawa-value')
+                    setInterval((tag, valueTag) => {
+                        let value = tag.dataset.value > 100 ? 0 : parseInt(tag.dataset.value) + 20
+                        tag.dataset.value = value
+                        valueTag.textContent = value
+                    }, 5000, zawa, zawaValue)
+                </script>
+            </div>
+        </dl>
+    </section>
+</article>
+
+<article class="card" id="don-timeline">
+    <a href="https://don.danmaid.com/">
+        <h2 class="title">
+            <img alt="Mastodon" src="https://don.danmaid.com/packs/logo_full-96e7a97fe469f75a23a74852b2478fa3.svg"
+                class="logo">
+            <i class="fas fa-comments mark"></i>最近の話題
+        </h2>
+    </a>
+    <dm-don-timeline class="content"></dm-don-timeline>
+</article>
+
+<article class="card" id="crypto">
+    <a href="https://crypto.danmaid.com/">
+        <h2 class="title">
+            <i class="fab fa-bitcoin mark"></i>暗号資産（仮想通貨）
+        </h2>
+        <section class="content">
+            <p>暗号資産でデータ分析や自動取引を行うための基盤となるツールを提供しています。</p>
+            <div id="bitfinex" class="ltp-item">
+                bitfinex
+                <i class="fab fa-btc"></i>
+                /
+                <i class="fas fa-dollar-sign"></i>
+                <span id="price"></span>
+                <div class="volume-item" style="position:relative;">
+                    <span style="position:absolute;top:-6px;left:0;">sell</span>
+                    <span id="volume-sell-label"></span>
+                    <dm-gauge2 id="volume-sell" class="volume-sell"></dm-gauge2>
+                    <dm-gauge2 id="volume-buy" class="volume-buy"></dm-gauge2>
+                    <span id="volume-buy-label"></span>
+                    <span style="position:absolute;top:-6px;right:0;">buy</span>
+                </div>
+            </div>
+            <div id="bitflyer" class="ltp-item">
+                bitFlyer
+                <i class="fab fa-btc"></i>
+                /
+                <i class="fas fa-yen-sign"></i>
+                <span id="price"></span>
+                <div class="volume-item" style="position:relative;">
+                    <span style="position:absolute;top:-6px;left:0;">sell</span>
+                    <span id="volume-sell-label"></span>
+                    <dm-gauge2 id="volume-sell" class="volume-sell"></dm-gauge2>
+                    <dm-gauge2 id="volume-buy" class="volume-buy"></dm-gauge2>
+                    <span id="volume-buy-label"></span>
+                    <span style="position:absolute;top:-6px;right:0;">buy</span>
+                </div>
+            </div>
+            <div class="update title">コンテンツ更新履歴</div>
+            <section class="update content" id="update"></section>
+        </section>
+    </a>
+</article>
+
+<article class="card" id="labo">
+    <h2 class="title">
+        <i class="fas fa-flask mark"></i>ラボ
+    </h2>
+    <section class="content">
+        <p>有料サービスを含む各種クラウドサービスやプロダクト等をラボメン向けに提供しています。</p>
+    </section>
+</article>
+
+<article class="card" id="blog">
+    <a href="https://blog.danmaid.com/">
+        <h2 class="title">
+            <i class="fas fa-newspaper mark"></i>ブログ
+        </h2>
+    </a>
+    <section class="content">
+        <section class="update" id="update"></section>
+    </section>
+</article>
+
+<article class="card" id="update">
+    <a href="https://github.com/danmaid/www.danmaid.com">
+        <h2 class="title">
+            <i class="fas fa-info-circle mark"></i>更新履歴
+        </h2>
+        <section class="content">
+            <section class="update" id="update"></section>
+        </section>
+    </a>
+</article>

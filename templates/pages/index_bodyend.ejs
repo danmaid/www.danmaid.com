@@ -1,0 +1,70 @@
+<script type="riot/tag" src="/assets/dm-don.tag"></script>
+<script type="riot/tag" src="/assets/dm-update.tag"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/riot@3/riot+compiler.min.js"></script>
+
+<script>
+    riot.compile(() => {
+        fetch('https://api.github.com/repos/danmaid/crypto.danmaid.com/commits')
+            .then(r => r.json())
+            .then(x => riot.mount('#crypto #update', 'dm-update-github', { data: x }));
+        fetch('https://api.github.com/repos/danmaid/www.danmaid.com/commits')
+            .then(r => r.json())
+            .then(x => riot.mount('#update #update', 'dm-update-github', { data: x }));
+        fetch('https://blog.danmaid.com/wp-json/wp/v2/posts')
+            .then(r => r.json())
+            .then(x => riot.mount('#blog #update', 'dm-update-wordpress', { data: x }));
+        riot.mount('*');
+    });
+</script>
+
+<script src="https://unpkg.com/event-target@latest/min.js"></script>
+<script src="https://crypto.danmaid.com/modules/src/executions3.js"></script>
+<script>
+    let bitfinex = { root: document.getElementById('bitfinex') }
+    bitfinex.source = new bitfinex_BTC_USD()
+    let bitflyer = { root: document.getElementById('bitflyer') }
+    bitflyer.source = new bitflyer_BTC_JPY()
+    // 価格表示
+    bitfinex.price = bitfinex.root.querySelector('#price')
+    bitfinex.source.addEventListener('message', (e) => {
+        bitfinex.price.textContent = e.detail.price
+    })
+    bitflyer.price = bitflyer.root.querySelector('#price')
+    bitflyer.source.addEventListener('message', (e) => {
+        bitflyer.price.textContent = e.detail.price
+    })
+    // ボリューム表示
+    let aggregator = (source, volume_buy, volume_sell, volume_buy_label, volume_sell_label) => {
+        // 集約
+        let limit = new Date()
+        limit.setSeconds(limit.getSeconds() - 20)
+        source = source.filter(e => e.date > limit)
+        // サイド分割
+        let buy = source.filter(e => e.side == 'BUY').map(e => e.volume || e.size).reduce((x, y) => x + y, 0)
+        let sell = source.filter(e => e.side == 'SELL').map(e => e.volume || e.size).reduce((x, y) => x + y, 0)
+        // まるめ
+        buy = Math.round(buy * 10) / 10
+        sell = Math.round(sell * 10) / 10
+        volume_buy.dataset.value = volume_buy_label.textContent = buy
+        volume_sell.dataset.value = volume_sell_label.textContent = sell
+    }
+    bitfinex.buy = bitfinex.root.querySelector('#volume-buy')
+    bitfinex.sell = bitfinex.root.querySelector('#volume-sell')
+    bitfinex.buy_label = bitfinex.root.querySelector('#volume-buy-label')
+    bitfinex.sell_label = bitfinex.root.querySelector('#volume-sell-label')
+    bitfinex.volume = []
+    bitfinex.source.addEventListener('message', (e) => {
+        bitfinex.volume.push(e.detail)
+    })
+    setInterval(aggregator, 1000, bitfinex.volume, bitfinex.buy, bitfinex.sell, bitfinex.buy_label, bitfinex.sell_label)
+    bitflyer.buy = bitflyer.root.querySelector('#volume-buy')
+    bitflyer.sell = bitflyer.root.querySelector('#volume-sell')
+    bitflyer.buy_label = bitflyer.root.querySelector('#volume-buy-label')
+    bitflyer.sell_label = bitflyer.root.querySelector('#volume-sell-label')
+    bitflyer.volume = []
+    bitflyer.source.addEventListener('message', (e) => {
+        bitflyer.volume.push(e.detail)
+    })
+    setInterval(aggregator, 1000, bitflyer.volume, bitflyer.buy, bitflyer.sell, bitflyer.buy_label, bitflyer.sell_label)
+</script>
