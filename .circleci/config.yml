@@ -1,0 +1,41 @@
+version: 2.1
+orbs:
+  aws-s3: circleci/aws-s3@1.0.15
+jobs:
+  deploy-labo:
+    working_directory: /tmp/workspace
+    docker:
+    - image: cimg/python:3.6
+
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - aws-s3/sync:
+          from: ./dist/
+          to: s3://www.labo.danmaid.com/
+          arguments: --exact-timestamps --cache-control no-store
+          overwrite: true
+  
+  deploy-production:
+    working_directory: /tmp/workspace
+    docker:
+    - image: cimg/python:3.6
+
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - aws-s3/sync:
+          from: ./dist/
+          to: s3://www.danmaid.com/
+          arguments: --exact-timestamps --cache-control no-store
+          overwrite: true
+workflows:
+  build-deploy:
+    jobs:
+      - deploy-labo
+      - deploy-production:
+          type: approval
+          filters:
+            branches:
+              only:
+                - master
