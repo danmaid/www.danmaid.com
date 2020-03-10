@@ -8,8 +8,7 @@ jobs:
     - image: cimg/python:3.6
 
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
+      - checkout
       - aws-s3/sync:
           from: ./dist/
           to: s3://www.labo.danmaid.com/
@@ -22,8 +21,7 @@ jobs:
     - image: cimg/python:3.6
 
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
+      - checkout
       - aws-s3/sync:
           from: ./dist/
           to: s3://www.danmaid.com/
