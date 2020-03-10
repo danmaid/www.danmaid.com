@@ -1,8 +1,0 @@
-{
-    "exec": "npm run build",
-    "watch": [
-        "src/",
-        "public/"
-    ],
-    "ext": "js,mjs,json,html"
-}
