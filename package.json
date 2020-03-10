@@ -4,7 +4,10 @@
   "description": "www.danmaid.com",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./build.js"
+    "start": "nodemon",
+    "build": "npm run clean && npm run build:public",
+    "build:public": "ncp public dist",
+    "clean": "rimraf dist"
   },
   "author": "danmaid <contact@danmaid.com> (https://github.com/danmaid/)",
   "repository": {
@@ -14,7 +17,8 @@
   "homepage": "https://www.danmaid.com",
   "license": "MIT",
   "devDependencies": {
-    "ejs": "^2.6.2",
-    "make-dir": "^3.0.0"
+    "ncp": "^2.0.0",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.2"
   }
 }
