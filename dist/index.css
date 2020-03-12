@@ -2,3 +2,54 @@
     background-color: rgb(19, 19, 21);
     color: rgb(190, 190, 210);
 }
+
+body {
+    margin: 0;
+}
+
+body > .header,
+body > .footer {
+    background-color: rgb(57, 57, 63);
+    box-shadow: 2px 2px 4px rgb(10, 10, 10);
+    display: flex;
+    padding: 0 8px;
+}
+
+body > .contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header > *,
+.footer > * {
+    margin: 0;
+}
+
+.card {
+    width: 320px;
+    max-height: 320px;
+    overflow-y: scroll;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px -2px;
+    margin: 8px;
+    background-color: rgb(38, 38, 42);
+}
+
+.card > .header {
+    margin: 0;
+    padding: 0 8px;
+    background-color: rgb(57, 57, 63);
+}
+
+.card > :not(.header) {
+    margin: 0 8px;
+}
+
+.card > :not(.header):first-of-type {
+    margin-top: 8px;
+}
+
+.card > :not(.header):last-of-type {
+    margin-bottom: 8px;
+}
