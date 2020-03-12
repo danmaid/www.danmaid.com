@@ -10,84 +10,91 @@
 </head>
 
 <body>
-    <h1>男メイド</h1>
-    <section>
-        <h2>目的</h2>
-        <ul>
-            <li>企業（団体）の目的や目標の達成を支えたい。</li>
-            <li>IT で何ができるのかを知ってもらいたい。</li>
-        </ul>
-    </section>
-    <section>
-        <h2>活動まとめ</h2>
-        <article>
-            <h3>2020-03-11 最近の話題をそれっぽく</h3>
-            <h4>1.現状把握</h4>
+    <header class="header">
+        <h1>男メイド</h1>
+    </header>
 
-            <p>1-1.vscodeでhtmlを直接編集。1-2.gitにコミット。1-3.githubにpush。この3つが手作業。</p>
-            <p>1-4.circleciがpushを拾う。1-5.s3にアップロード。この部分は自動。</p>
-            <p>1-6.ブラウザにURLを入力。1-7.route53-&gt;cloudfront-&gt;s3。この辺はちょっと省略。</p>
+    <main class="contents">
+        <section class="card">
+            <h2 class="header">目的</h2>
+            <ul>
+                <li>企業（団体）の目的や目標の達成を支えたい。</li>
+                <li>IT を知ってもらいたい。</li>
+            </ul>
+        </section>
+        <section class="card">
+            <h2 class="header">活動まとめ</h2>
+            <article>
+                <h3>2020-03-11 最近の話題をそれっぽく</h3>
+                <h4>1.現状把握</h4>
 
-            <h4>2.目的把握</h4>
-            <p>2.やってることを見えるようにする。</p>
+                <p>1-1.vscodeでhtmlを直接編集。1-2.gitにコミット。1-3.githubにpush。この3つが手作業。</p>
+                <p>1-4.circleciがpushを拾う。1-5.s3にアップロード。この部分は自動。</p>
+                <p>1-6.ブラウザにURLを入力。1-7.route53-&gt;cloudfront-&gt;s3。この辺はちょっと省略。</p>
 
-            <h4>3.ゴールの確認</h4>
-            <p>3-1.入力と出力を決める。出力から。</p>
-            <p>3-2.アプローチとしては2つ。静的コンテンツにするか動的コンテンツにするか。</p>
-            <p>普通に考えれば動的。小さいとはいえ、コストはかかる。</p>
-            <p>静的の場合はページ全体で一つになる。動的の場合は分割することができる。</p>
-            <p>出力の形はひとまず今の形でいいかな。</p>
-            <p>3-3.入力は、誰がいつどんな形でやるか。</p>
-            <p>今のところメンテナは一人。いつでも、PCから限定でも可。</p>
+                <h4>2.目的把握</h4>
+                <p>2.やってることを見えるようにする。</p>
 
-            <h4>4.実装</h4>
-            <p>4.動的にするとして REST API で受けてデータは適当に持つ。</p>
-        </article>
-        <article>
-            <h3>2020-03-10</h3>
-            <h4>活動をまとめる。</h4>
-            <p>一定の範囲において実施してきた内容をまとめた。一定の範囲を1日分と設定した。</p>
+                <h4>3.ゴールの確認</h4>
+                <p>3-1.入力と出力を決める。出力から。</p>
+                <p>3-2.アプローチとしては2つ。静的コンテンツにするか動的コンテンツにするか。</p>
+                <p>普通に考えれば動的。小さいとはいえ、コストはかかる。</p>
+                <p>静的の場合はページ全体で一つになる。動的の場合は分割することができる。</p>
+                <p>出力の形はひとまず今の形でいいかな。</p>
+                <p>3-3.入力は、誰がいつどんな形でやるか。</p>
+                <p>今のところメンテナは一人。いつでも、PCから限定でも可。</p>
 
-            <h4>記載内容を分類する。</h4>
-            <a
-                href="https://github.com/danmaid/www.danmaid.com/commit/dfc7996fbdef82900efe80b3a235a5a293ad9d7c">dfc7996fbdef82900efe80b3a235a5a293ad9d7c</a>
-            <p>複数の内容が混在する形になったため、分類を行った。</p>
+                <h4>4.実装</h4>
+                <p>4.動的にするとして REST API で受けてデータは適当に持つ。</p>
+            </article>
+            <article>
+                <h3>2020-03-10</h3>
+                <h4>活動をまとめる。</h4>
+                <p>一定の範囲において実施してきた内容をまとめた。一定の範囲を1日分と設定した。</p>
 
-            <h4>目的を記載する。</h4>
-            <a
-                href="https://github.com/danmaid/www.danmaid.com/commit/587b46e17c6c67ce8eb629f44fe330c7b498ad37">587b46e17c6c67ce8eb629f44fe330c7b498ad37</a>
-            <p>何がしたいのかを表現したかったので、目的を記載した。</p>
+                <h4>記載内容を分類する。</h4>
+                <a
+                    href="https://github.com/danmaid/www.danmaid.com/commit/dfc7996fbdef82900efe80b3a235a5a293ad9d7c">dfc7996fbdef82900efe80b3a235a5a293ad9d7c</a>
+                <p>複数の内容が混在する形になったため、分類を行った。</p>
 
-            <h4>ITっぽさを表現する。</h4>
-            <a
-                href="https://github.com/danmaid/www.danmaid.com/commit/4dc7a976dd2b18271f3294a12956afd540eda470">4dc7a976dd2b18271f3294a12956afd540eda470</a>
-            <p>ITってサイバー感があると思っている。ので、サイバー感を出してみた。</p>
+                <h4>目的を記載する。</h4>
+                <a
+                    href="https://github.com/danmaid/www.danmaid.com/commit/587b46e17c6c67ce8eb629f44fe330c7b498ad37">587b46e17c6c67ce8eb629f44fe330c7b498ad37</a>
+                <p>何がしたいのかを表現したかったので、目的を記載した。</p>
 
-            <h4>見えないものを、見えるようにする。</h4>
-            <a
-                href="https://github.com/danmaid/www.danmaid.com/commit/5e8678226e817b356aaaa459a324d3c9ad68e269">5e8678226e817b356aaaa459a324d3c9ad68e269</a>
-            <a
-                href="https://github.com/danmaid/www.danmaid.com/commit/3adc61415c3aafdc9d914b8f0c5f85ed56978611">3adc61415c3aafdc9d914b8f0c5f85ed56978611</a>
-            <p>活動内容そのものを見えるようにするため、インターネットから常時閲覧できる状態にした。</p>
+                <h4>ITっぽさを表現する。</h4>
+                <a
+                    href="https://github.com/danmaid/www.danmaid.com/commit/4dc7a976dd2b18271f3294a12956afd540eda470">4dc7a976dd2b18271f3294a12956afd540eda470</a>
+                <p>ITってサイバー感があると思っている。ので、サイバー感を出してみた。</p>
 
-        </article>
-    </section>
-    <section>
-        <h2>最近の話題</h2>
-        <ul id="wadai"></ul>
-        <script>
-            const target = document.getElementById('wadai')
-            fetch('https://boyaki.danmaid.com/v1/')
-                .then(res => res.json())
-                .then(items => {
-                    for (let item of items) {
-                        const li = document.createElement('li')
-                        li.innerText = item.message
-                        target.appendChild(li)
-                    }
-                })
-        </script>
-    </section>
+                <h4>見えないものを、見えるようにする。</h4>
+                <a
+                    href="https://github.com/danmaid/www.danmaid.com/commit/5e8678226e817b356aaaa459a324d3c9ad68e269">5e8678226e817b356aaaa459a324d3c9ad68e269</a>
+                <a
+                    href="https://github.com/danmaid/www.danmaid.com/commit/3adc61415c3aafdc9d914b8f0c5f85ed56978611">3adc61415c3aafdc9d914b8f0c5f85ed56978611</a>
+                <p>活動内容そのものを見えるようにするため、インターネットから常時閲覧できる状態にした。</p>
+
+            </article>
+        </section>
+        <section class="card">
+            <h2 class="header">最近の話題</h2>
+            <ul id="wadai"></ul>
+            <script>
+                const target = document.getElementById('wadai')
+                fetch('https://boyaki.danmaid.com/v1/')
+                    .then(res => res.json())
+                    .then(items => {
+                        for (let item of items) {
+                            const li = document.createElement('li')
+                            li.innerText = item.message
+                            target.appendChild(li)
+                        }
+                    })
+            </script>
+        </section>
+    </main>
+
+    <footer class="footer">&copy; 2020 男メイド</footer>
 </body>
 
 </html>
