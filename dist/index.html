@@ -51,31 +51,19 @@
     </section>
     <section>
         <h2>最近の話題</h2>
-        <ul>
-            <li>4.動的にするとして REST API で受けてデータは適当に持つ。</li>
-            <li>今のところメンテナは一人。いつでも、PCから限定でも可。</li>
-            <li>3-3.入力は、誰がいつどんな形でやるか。</li>
-            <li>出力の形はひとまず今の形でいいかな。</li>
-            <li>静的の場合はページ全体で一つになる。動的の場合は分割することができる。</li>
-            <li>普通に考えれば動的。小さいとはいえ、コストはかかる。</li>
-            <li>3-2.アプローチとしては2つ。静的コンテンツにするか動的コンテンツにするか。</li>
-            <li>3-1.入力と出力を決める。出力から。</li>
-            <li>2.やってることを見えるようにする。</li>
-            <li>1-6.ブラウザにURLを入力。1-7.route53->cloudfront->s3。この辺はちょっと省略。</li>
-            <li>1-4.circleciがpushを拾う。1-5.s3にアップロード。この部分は自動。</li>
-            <li>1-1.vscodeでhtmlを直接編集。1-2.gitにコミット。1-3.githubにpush。この3つが手作業。</li>
-            <li>現状把握、目的把握、ゴールの確認、実装。一つ一つ進める。</li>
-            <li>まずはこれ。この部分（最近の話題）から。</li>
-            <li>たったこれだけのことだけど、これらをIT屋らしくしてみるか。</li>
-            <li>つぶやきと言っておきながら、やること書いている感じだな。。</li>
-            <li>活動をまとめる。</li>
-            <li>記載内容を分類する。</li>
-            <li>目的を記載する。</li>
-            <li>ITっぽさを表現する。</li>
-            <li>見えないものを、見えるようにする。</li>
-            <li>ないものは、作る。</li>
-            <li>一つずつ確実に。</li>
-        </ul>
+        <ul id="wadai"></ul>
+        <script>
+            const target = document.getElementById('wadai')
+            fetch('https://boyaki.danmaid.com/v1/')
+                .then(res => res.json())
+                .then(items => {
+                    for (let item of items) {
+                        const li = document.createElement('li')
+                        li.innerText = item.message
+                        target.appendChild(li)
+                    }
+                })
+        </script>
     </section>
 </body>
 
