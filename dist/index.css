@@ -29,7 +29,8 @@ body > .contents {
 .card {
     width: 320px;
     max-height: 320px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    word-break: break-all;
     border-radius: 2px;
     box-shadow: 2px 2px 4px -2px;
     margin: 8px;
@@ -52,4 +53,25 @@ body > .contents {
 
 .card > :not(.header):last-of-type {
     margin-bottom: 8px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 63);
+    border: 0 none #fff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border: 0 none #fff;
+    border-radius: 0;
 }
