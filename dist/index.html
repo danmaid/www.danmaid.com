@@ -25,6 +25,28 @@
         <section class="card">
             <h2 class="header">活動まとめ</h2>
             <article>
+                <h3>2020-03-21 最近の話題の入力UI追加</h3>
+                <h4>1. 現状把握</h4>
+                <p>AWS Console (DynamoDB) の Web UI にて。</p>
+                <p>最新のタイムスタンプ値を記憶</p>
+                <p>項目の作成により、UserId に固定値1、timestamp に記憶 + 1、message に内容を記載</p>
+
+                <h4>2. 目的把握</h4>
+                <p>もっと楽に入力したい</p>
+                
+                <h4>3. ゴールの確認</h4>
+                <p>すでに slack があるので、特定のチャンネルに投降した内容が自動反映されるようにする。</p>
+                
+                <h4>4. 実装</h4>
+                <p>入力は slack の投稿。</p>
+                <p>出力は DynamoDB の boyaki テーブル。</p>
+                <p>トリガーは slack で投稿された時。</p>
+                <p>トリガーの引き方として RTM API と Event API が候補に上がるが、RTM の場合は常時稼働が必要でお金がもったいない。Event API であれば webhook を slack から発行してくれる形になるので、受け口を用意しておけばいいので Event API での実装とする。</p>
+                <p>投稿(slack) -> boyaki(slack-bot) -> Boyaki API(API Gateway) -> *slackUrlVerification(lambda) -> boyaki(DynamoDB)</p>
+                <p>*slackUrlVerification この名前は失敗。最初に URL Verification の実装を別にするものだと勘違いしてたからこうなった。</p>
+
+            </article>
+            <article>
                 <h3>2020-03-11 最近の話題をそれっぽく</h3>
                 <h4>1.現状把握</h4>
 
