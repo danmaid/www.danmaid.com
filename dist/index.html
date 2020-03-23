@@ -17,18 +17,29 @@
     <main class="contents">
         <section class="card">
             <h2 class="header">男メイドとは</h2>
-            <ul>
-                <li>3歩下がってついていく。</li>
-                <li>成功報酬型 IT担当社員サービス。</li>
-            </ul>
+            <div class="draft">
+                <ul>
+                    <li>3歩下がってついていく。</li>
+                    <li>成功報酬型 IT担当社員サービス。</li>
+                </ul>
+                <article>
+                    <h3>サービス導入への道</h3>
+                    <ul>
+                        <li>基本契約(機密保持等)</li>
+                        <li>ごあいさつ</li>
+                    </ul>
+                </article>
+            </div>
         </section>
         <section class="card">
             <h2 class="header">目的</h2>
-            <ul>
-                <li>企業（団体）の目的や目標の達成を支えたい。</li>
-                <li>IT を知ってもらいたい。</li>
-                <li>究極のITシステムを求めて・・・。</li>
-            </ul>
+            <div class="draft">
+                <ul>
+                    <li>企業（団体）の目的や目標の達成を支えたい。</li>
+                    <li>IT を知ってもらいたい。</li>
+                    <li>究極のITシステムを求めて・・・。</li>
+                </ul>
+            </div>
         </section>
         <section class="card">
             <h2 class="header">活動まとめ</h2>
@@ -41,16 +52,18 @@
 
                 <h4>2. 目的把握</h4>
                 <p>もっと楽に入力したい</p>
-                
+
                 <h4>3. ゴールの確認</h4>
                 <p>すでに slack があるので、特定のチャンネルに投降した内容が自動反映されるようにする。</p>
-                
+
                 <h4>4. 実装</h4>
                 <p>入力は slack の投稿。</p>
                 <p>出力は DynamoDB の boyaki テーブル。</p>
                 <p>トリガーは slack で投稿された時。</p>
-                <p>トリガーの引き方として RTM API と Event API が候補に上がるが、RTM の場合は常時稼働が必要でお金がもったいない。Event API であれば webhook を slack から発行してくれる形になるので、受け口を用意しておけばいいので Event API での実装とする。</p>
-                <p>投稿(slack) -> boyaki(slack-bot) -> Boyaki API(API Gateway) -> *slackUrlVerification(lambda) -> boyaki(DynamoDB)</p>
+                <p>トリガーの引き方として RTM API と Event API が候補に上がるが、RTM の場合は常時稼働が必要でお金がもったいない。Event API であれば webhook を slack
+                    から発行してくれる形になるので、受け口を用意しておけばいいので Event API での実装とする。</p>
+                <p>投稿(slack) -> boyaki(slack-bot) -> Boyaki API(API Gateway) -> *slackUrlVerification(lambda) ->
+                    boyaki(DynamoDB)</p>
                 <p>*slackUrlVerification この名前は失敗。最初に URL Verification の実装を別にするものだと勘違いしてたからこうなった。</p>
 
             </article>
