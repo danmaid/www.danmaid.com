@@ -15,44 +15,14 @@ body > .footer {
     padding: 0 8px;
 }
 
-body > .contents {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+body > .footer {
+    height: 24px;
+    justify-content: flex-end;
 }
 
-.header > *,
-.footer > * {
-    margin: 0;
-}
-
-.card {
-    width: 320px;
-    max-height: 320px;
-    overflow-y: auto;
-    word-break: break-all;
-    border-radius: 2px;
-    box-shadow: 2px 2px 4px -2px;
-    margin: 8px;
-    background-color: rgb(38, 38, 42);
-}
-
-.card > .header {
-    margin: 0;
-    padding: 0 8px;
-    background-color: rgb(57, 57, 63);
-}
-
-.card > :not(.header) {
-    margin: 0 8px;
-}
-
-.card > :not(.header):first-of-type {
-    margin-top: 8px;
-}
-
-.card > :not(.header):last-of-type {
-    margin-bottom: 8px;
+body > .main {
+    min-height: calc(100vh - 24px - 32px);
+    padding: 16px;
 }
 
 ::-webkit-scrollbar {
@@ -74,10 +44,4 @@ body > .contents {
     background: rgba(0, 0, 0, 0.2);
     border: 0 none #fff;
     border-radius: 0;
-}
-
-.draft {
-    position: relative;
-    background-image: url("./draft.svg");
-    background-size: 50px;
 }

@@ -7,155 +7,21 @@
     <title>男メイド</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./index.css">
+    <script defer src="./components/scroll-shrink.js"></script>
 </head>
 
 <body>
     <header class="header">
-        <h1>男メイド</h1>
+        <!-- <h1>男メイド</h1> -->
     </header>
 
-    <main class="contents">
-        <section class="card draft">
-            <h2 class="header">男メイドとは</h2>
-            <ul>
-                <li>3歩下がってついていく。</li>
-                <li>成功報酬型 IT担当社員サービス。</li>
-            </ul>
-            <p>各種IT関連業務に際し、お客様の担当者として対応をさせていただきます。</p>
-            <article>
-                <ul>
-                    <li>各種IT関連業務が発生した際、担当者として任命いただきます。</li>
-                    <li>お見積り（原則、担当業務予算の 10%）と個別契約を締結させていただきます。</li>
-                    <li>発注先業者との各種調整</li>
-                    <li>社内への報告や各種調整</li>
-                    <li>業務完了後、費用を請求させていただきます。</li>
-                </ul>
-            </article>
-            <article>
-                <h3>サービス導入への道</h3>
-                <ul>
-                    <li>基本契約(入社)*</li>
-                    <li>入社のごあいさつ</li>
-                    <li>お客様業務の目的把握</li>
-                    <li>既存システムの把握</li>
-                    <li>*基本契約には機密保持契約を含みます。</li>
-                </ul>
-            </article>
-            <article>
-                <h3>ご用意いただくもの</h3>
-                <ul>
-                    <li>社員証</li>
-                    <li>社員様と同等の権限</li>
-                    <li>事業所内共用部（給湯室やミーティングコーナーなど）の利用許可*</li>
-                    <li>システム管理権限</li>
-                    <li>持ち込み機器(PC、ポケットWifi、スマートフォン等)の利用許可*</li>
-                    <li>*基本契約内においては常駐いたしませんので専用のデスク等は不要です。</li>
-                    <li>*お客様LANへの接続は行いません。</li>
-                </ul>
-            </article>
-        </section>
-        <section class="card draft">
-            <h2 class="header">目的</h2>
-            <ul>
-                <li>企業（団体）の目的や目標の達成を支えたい。</li>
-                <li>IT を知ってもらいたい。</li>
-                <li>究極のITシステムを求めて・・・。</li>
-            </ul>
-        </section>
-        <section class="card">
-            <h2 class="header">活動まとめ</h2>
-            <article>
-                <h3>2020-03-21 最近の話題の入力UI追加</h3>
-                <h4>1. 現状把握</h4>
-                <p>AWS Console (DynamoDB) の Web UI にて。</p>
-                <p>最新のタイムスタンプ値を記憶</p>
-                <p>項目の作成により、UserId に固定値1、timestamp に記憶 + 1、message に内容を記載</p>
-
-                <h4>2. 目的把握</h4>
-                <p>もっと楽に入力したい</p>
-
-                <h4>3. ゴールの確認</h4>
-                <p>すでに slack があるので、特定のチャンネルに投降した内容が自動反映されるようにする。</p>
-
-                <h4>4. 実装</h4>
-                <p>入力は slack の投稿。</p>
-                <p>出力は DynamoDB の boyaki テーブル。</p>
-                <p>トリガーは slack で投稿された時。</p>
-                <p>トリガーの引き方として RTM API と Event API が候補に上がるが、RTM の場合は常時稼働が必要でお金がもったいない。Event API であれば webhook を slack
-                    から発行してくれる形になるので、受け口を用意しておけばいいので Event API での実装とする。</p>
-                <p>投稿(slack) -> boyaki(slack-bot) -> Boyaki API(API Gateway) -> *slackUrlVerification(lambda) ->
-                    boyaki(DynamoDB)</p>
-                <p>*slackUrlVerification この名前は失敗。最初に URL Verification の実装を別にするものだと勘違いしてたからこうなった。</p>
-
-            </article>
-            <article>
-                <h3>2020-03-11 最近の話題をそれっぽく</h3>
-                <h4>1.現状把握</h4>
-
-                <p>1-1.vscodeでhtmlを直接編集。1-2.gitにコミット。1-3.githubにpush。この3つが手作業。</p>
-                <p>1-4.circleciがpushを拾う。1-5.s3にアップロード。この部分は自動。</p>
-                <p>1-6.ブラウザにURLを入力。1-7.route53-&gt;cloudfront-&gt;s3。この辺はちょっと省略。</p>
-
-                <h4>2.目的把握</h4>
-                <p>2.やってることを見えるようにする。</p>
-
-                <h4>3.ゴールの確認</h4>
-                <p>3-1.入力と出力を決める。出力から。</p>
-                <p>3-2.アプローチとしては2つ。静的コンテンツにするか動的コンテンツにするか。</p>
-                <p>普通に考えれば動的。小さいとはいえ、コストはかかる。</p>
-                <p>静的の場合はページ全体で一つになる。動的の場合は分割することができる。</p>
-                <p>出力の形はひとまず今の形でいいかな。</p>
-                <p>3-3.入力は、誰がいつどんな形でやるか。</p>
-                <p>今のところメンテナは一人。いつでも、PCから限定でも可。</p>
-
-                <h4>4.実装</h4>
-                <p>4.動的にするとして REST API で受けてデータは適当に持つ。</p>
-            </article>
-            <article>
-                <h3>2020-03-10</h3>
-                <h4>活動をまとめる。</h4>
-                <p>一定の範囲において実施してきた内容をまとめた。一定の範囲を1日分と設定した。</p>
-
-                <h4>記載内容を分類する。</h4>
-                <a
-                    href="https://github.com/danmaid/www.danmaid.com/commit/dfc7996fbdef82900efe80b3a235a5a293ad9d7c">dfc7996fbdef82900efe80b3a235a5a293ad9d7c</a>
-                <p>複数の内容が混在する形になったため、分類を行った。</p>
-
-                <h4>目的を記載する。</h4>
-                <a
-                    href="https://github.com/danmaid/www.danmaid.com/commit/587b46e17c6c67ce8eb629f44fe330c7b498ad37">587b46e17c6c67ce8eb629f44fe330c7b498ad37</a>
-                <p>何がしたいのかを表現したかったので、目的を記載した。</p>
-
-                <h4>ITっぽさを表現する。</h4>
-                <a
-                    href="https://github.com/danmaid/www.danmaid.com/commit/4dc7a976dd2b18271f3294a12956afd540eda470">4dc7a976dd2b18271f3294a12956afd540eda470</a>
-                <p>ITってサイバー感があると思っている。ので、サイバー感を出してみた。</p>
-
-                <h4>見えないものを、見えるようにする。</h4>
-                <a
-                    href="https://github.com/danmaid/www.danmaid.com/commit/5e8678226e817b356aaaa459a324d3c9ad68e269">5e8678226e817b356aaaa459a324d3c9ad68e269</a>
-                <a
-                    href="https://github.com/danmaid/www.danmaid.com/commit/3adc61415c3aafdc9d914b8f0c5f85ed56978611">3adc61415c3aafdc9d914b8f0c5f85ed56978611</a>
-                <p>活動内容そのものを見えるようにするため、インターネットから常時閲覧できる状態にした。</p>
-
-            </article>
-        </section>
-        <section class="card">
-            <h2 class="header">最近の話題</h2>
-            <ul id="wadai"></ul>
-            <script>
-                const target = document.getElementById('wadai')
-                fetch('https://boyaki.danmaid.com/v1/')
-                    .then(res => res.json())
-                    .then(items => {
-                        for (let item of items) {
-                            const li = document.createElement('li')
-                            li.innerText = item.message
-                            target.appendChild(li)
-                        }
-                    })
-            </script>
-        </section>
+    <main class="main">
+        <dm-scroll-shrink style="padding: 10%;">
+            <object data="assets/title.svg"></object>
+        </dm-scroll-shrink>
+        <dm-scroll-shrink style="padding: 20%;">
+            <object data="assets/it.svg"></object>
+        </dm-scroll-shrink>
     </main>
 
     <footer class="footer">&copy; 2020 男メイド</footer>
