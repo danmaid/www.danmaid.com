@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">&copy; 男メイド</footer>
+  <footer class="footer">&copy; 2021 男メイド</footer>
 </template>
 
 <script lang="ts">

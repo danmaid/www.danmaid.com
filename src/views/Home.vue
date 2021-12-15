@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>Welcome to 男メイド</h1>
+    <h3>雇わないシステム担当者</h3>
+    <h1>男メイド</h1>
   </div>
 </template>
 
