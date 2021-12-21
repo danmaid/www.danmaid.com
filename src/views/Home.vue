@@ -1,11 +1,35 @@
 <template>
   <div class="home">
+    <div
+      style="
+        font-size: 2em;
+        display: flex;
+        height: 4em;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      コンピュータ × 楽
+    </div>
+    <BasicFrame
+      avatar="商い"
+      style="display: flex; align-items: center; justify-content: center"
+      >ビジネス</BasicFrame
+    >
+    <BasicFrame
+      avatar="研究所"
+      style="display: flex; align-items: center; justify-content: center"
+      >ラボ</BasicFrame
+    >
+    <BasicFrame>交わる/カフェ</BasicFrame>
+
     <h3>雇わないITシステム担当者</h3>
     <h1>男メイド</h1>
     <h3>その情熱をITで支援します!!</h3>
     <p>
       貴社の経営理念に基づき、IT専門家の知識や経験を元に支援します。貴社の情熱を熱く語っていただくだけでOKです。3歩下がってついて行きます。
     </p>
+
     <h3>
       まずはご連絡ください。
       <a href="mailto:yamada@danmaid.com" target="_blank">email</a>
@@ -73,9 +97,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue'
+import BasicFrame from '@/components/BasicFrame.vue'
 
 export default Vue.extend({
-  name: "Home",
-});
+  name: 'Home',
+  components: { BasicFrame },
+})
 </script>
