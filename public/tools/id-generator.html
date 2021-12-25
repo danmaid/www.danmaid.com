@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-78911133-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-78911133-1");
+    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Tools / 男メイド</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/common.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/index.css" />
+    <script defer src="/tags/common.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>
+        <a href="/">男メイド</a>
+      </h1>
+    </header>
+
+    <main class="contents-container">
+      <article class="card" id="about">
+        <h2 class="title">
+          UUID v4
+        </h2>
+        <section class="content" style="padding: 4px">
+          <div id="uuidv4"></div>
+          <script async type="module">
+            import { v4 } from "https://jspm.dev/uuid";
+            const div = document.getElementById("uuidv4");
+            div.innerText = v4();
+          </script>
+          <div style="position: absolute; bottom: 1em">
+            <a href="https://github.com/uuidjs/uuid/blob/main/LICENSE.md"
+              >LICENSE</a
+            >
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <dm-footer id="dm-footer"></dm-footer>
+  </body>
+</html>
