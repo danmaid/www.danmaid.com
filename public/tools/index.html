@@ -32,10 +32,8 @@
     </header>
 
     <main class="contents-container">
-      <article class="card" id="about">
-        <h2 class="title">
-          UUID v4
-        </h2>
+      <article class="card">
+        <h2 class="title">UUID v4</h2>
         <section class="content" style="padding: 4px">
           <div id="uuidv4"></div>
           <script async type="module">
@@ -45,9 +43,28 @@
           </script>
           <div style="position: absolute; bottom: 1em">
             <a href="https://github.com/uuidjs/uuid/blob/main/LICENSE.md"
-              >LICENSE</a
+              >thanks</a
             >
           </div>
+        </section>
+      </article>
+
+      <article class="card" id="ping">
+        <h2 class="title">PING</h2>
+        <section class="content" style="padding: 4px">
+          <span id="res"></span>
+          <button onclick="ping()">PING</button>
+          <script async>
+            async function ping() {
+              const start = new Date();
+              const res = await fetch("");
+              const end = new Date();
+              const delta = end - start;
+              const result = `${res.ok} ${res.status} ${res.statusText} ${delta}ms`;
+              document.getElementById("res").innerText = result;
+            }
+            ping()
+          </script>
         </section>
       </article>
     </main>
